@@ -3,7 +3,7 @@ def input
     puts("三桁の異なる数字を入力してください")
     numbers = gets.chomp
     @num_array = numbers.split("")
-    break  if(@num_array.uniq.size == 3)
+    break  if(@num_array.uniq.size == 3 && @num_array.size == 3)
   end
 end
 secret = Array.new

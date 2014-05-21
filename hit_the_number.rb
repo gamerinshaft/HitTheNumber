@@ -1,22 +1,20 @@
 def input
-  puts("三桁の数字を入力してください")
-  numbers = gets.chomp
-  @num_array = numbers.split("")
+  loop do
+    puts("三桁の異なる数字を入力してください")
+    numbers = gets.chomp
+    @num_array = numbers.split("")
+    break  if(@num_array.uniq.size == 3)
+  end
 end
 secret = Array.new
-rand = Random.new(1234)
-secret[0] = Random.rand(10)
-secret[1] = Random.rand(10)
-secret[2] = Random.rand(10)
+array = [0,1,2,3,4,5,6,7,8,9]
+array_s = array.shuffle
+secret[0],secret[1],secret[2] = array_s
 
 
-hit = 0
-count = 0
+hit, count = 0, 0
 while(hit !=3) do
-  hit = 0
-  foul = 0
-  ball = 0
-  i = 0
+  hit, foul, ball, i = 0, 0 ,0 ,0
   input()
   @num_array.each do |num|
     if(num.to_i == secret[i])
